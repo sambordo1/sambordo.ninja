@@ -49,7 +49,7 @@ resource "aws_alb" "my_alb" {
 
 resource "aws_alb_target_group" "my_target_group" {
   name     = "my-target-group"
-  port     = 4000
+  port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
 
@@ -69,7 +69,7 @@ resource "aws_alb_target_group" "my_target_group" {
 
 resource "aws_alb_listener" "my_listener" {
   load_balancer_arn = aws_alb.my_alb.arn
-  port              = 4000
+  port              = 80
   protocol          = "HTTP"
 
   default_action {

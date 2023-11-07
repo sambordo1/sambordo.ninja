@@ -16,7 +16,7 @@ resource "aws_autoscaling_group" "my_auto_scaling_group" {
   max_size                  = 1
   desired_capacity          = 1
   launch_configuration      = aws_launch_configuration.my_launch_configuration.name
-  vpc_zone_identifier       = [var.subnet_id1]
+  vpc_zone_identifier       = [var.subnet_id1, var.subnet_id2, var.subnet_id3]
   health_check_type         = "EC2"
   health_check_grace_period = 300
   target_group_arns          = [aws_alb_target_group.my_target_group.arn]
